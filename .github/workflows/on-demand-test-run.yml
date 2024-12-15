@@ -12,6 +12,9 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    concurrency: ${{ inputs.environment }}
+    timeout-minutes: 45
 
     env:
       BASE_API_URL: ${{ vars.BASE_API_URL }}
