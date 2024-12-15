@@ -19,11 +19,11 @@ jobs:
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
 
     steps:
-      - name: Vars
+      - name: Debug Environment Variables
         run: |
-          echo "$BASE_API_URL"
-          echo "$CLIENT_ID"
-          echo "$CLIENT_SECRET"
+          echo "BASE_API_URL=$BASE_API_URL"
+          echo "CLIENT_ID=$CLIENT_ID"
+          echo "CLIENT_SECRET=$CLIENT_SECRET"
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run Tests
-        run: mvn test
+        run: mvn test -Dapp.baseApiUrl=$BASE_API_URL -Dapp.clientId=$CLIENT_ID -Dapp.clientSecret=$CLIENT_SECRET
 
       - name: Generate Allure Report
         run: mvn allure:report
