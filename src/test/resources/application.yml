@@ -1,4 +1,4 @@
 app:
-  baseApiUrl: ${BASE_API_URL}
-  clientId: ${CLIENT_ID}
-  clientSecret: ${CLIENT_SECRET}
+  baseApiUrl: https://api.spotify.com/v1
+  clientId: 6bf9946cb0ef493e81e62816b32dc0aa
+  clientSecret: ba403e21ab624806ad2073e4cc06cf9c
