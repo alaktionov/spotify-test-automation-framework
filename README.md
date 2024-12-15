@@ -39,10 +39,8 @@ mvn test
 ```
 
 Generate and view reports:
-
 ```shell
-mvn allure:report
-allure serve target/site/allure-maven-plugin
+allure serve target/allure-results
 ```
 
 ## Running Tests via GitHub Actions

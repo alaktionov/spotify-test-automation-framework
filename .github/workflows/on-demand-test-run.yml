@@ -19,6 +19,12 @@ jobs:
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
 
     steps:
+      - name: Vars
+        run: |
+          echo "$BASE_API_URL"
+          echo "$CLIENT_ID"
+          echo "$CLIENT_SECRET"
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -29,16 +35,16 @@ jobs:
           distribution: 'adopt'
           cache: 'maven'
 
+      - name: Install Maven
+        run: sudo apt-get update && sudo apt-get install -y maven
+
       - name: Cache Maven repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
-      - name: Build with Maven
-        run: mvn clean install
 
       - name: Run Tests
         run: mvn test
