@@ -44,7 +44,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run Tests
-        run: mvn test
+        run: mvn test -Dapp.baseApiUrl=${{ env.BASE_API_URL }} -Dapp.clientId=${{ env.CLIENT_ID }} -Dapp.clientSecret=${{ env.CLIENT_SECRET }}
 
       - name: Generate Allure Report
         run: mvn allure:report
