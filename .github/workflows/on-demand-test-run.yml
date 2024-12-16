@@ -30,15 +30,18 @@ jobs:
         with:
           java-version: '21'
           distribution: 'adopt'
-          cache: 'maven'
 
-      - name: Install Maven
-        run: sudo apt-get update && sudo apt-get install -y maven
+      - name: Setup Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.8.2
 
       - name: Cache Maven repository
         uses: actions/cache@v4
         with:
-          path: ~/.m2
+          path: |
+            ~/.m2/repository
+            .allure
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
