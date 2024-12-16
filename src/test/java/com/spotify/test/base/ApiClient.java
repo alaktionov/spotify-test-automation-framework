@@ -1,24 +1,23 @@
 package com.spotify.test.base;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHeaders;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Base64;
 import java.util.Collections;
 import java.util.Map;
 
+@Slf4j
 public class ApiClient {
 
     private final String clientId;
     private final String clientSecret;
     private final String baseApiUrl;
-    private String accessToken;
-
-    private static final Logger log = LoggerFactory.getLogger(ApiClient.class);
+    private final String accessToken;
 
     private static final String GRANT_TYPE = "client_credentials";
     private static final String ACCESS_TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
@@ -53,17 +52,9 @@ public class ApiClient {
         }
     }
 
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public void refreshAccessToken() {
-        log.info("Refreshing access token");
-        this.accessToken = retrieveAccessToken();
-    }
-
     public Response sendRequest(String method, String endpoint, Map<String, Object> params) {
         Response response = RestAssured.given()
+            .filters(new AllureRestAssured())
             .baseUri(baseApiUrl)
             .header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken)
             .params(params)

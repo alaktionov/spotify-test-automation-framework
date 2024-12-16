@@ -1,16 +1,17 @@
 package com.spotify.test.scenarios;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.spotify.test.BaseApiTest;
+import com.spotify.test.steps.ArtistsSteps;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -18,6 +19,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Epic("Test scenarios for artists functionality")
 public class ArtistsTest extends BaseApiTest {
+
+    @Autowired
+    private ArtistsSteps artistsSteps;
 
     @ParameterizedTest
     @CsvSource({
@@ -30,7 +34,7 @@ public class ArtistsTest extends BaseApiTest {
     @Story("Get artist information")
     public void testGetArtist(String artistId, String artistName) {
         // When GET request to retrieve artist information is sent
-        Response response = apiClient.sendRequest("GET", String.format("/artists/%s", artistId));
+        Response response = artistsSteps.getArtistById(artistId);
 
         // Then response status code is correct
         response.then().statusCode(200);
@@ -53,12 +57,8 @@ public class ArtistsTest extends BaseApiTest {
             "66CXWjxzNUsdJxJ2JdwvnR"
         );
 
-        // And list of artistIds has been set as request query parameter
-        Map<String, Object> params = new HashMap<>();
-        params.put("ids", String.join(",", artistIds));
-
         // When GET request to retrieve artists information is sent
-        Response response = apiClient.sendRequest("GET", "/artists", params);
+        Response response = artistsSteps.getArtistsByIds(artistIds);
 
         // Then response status code is correct
         response.then().statusCode(200);
@@ -75,5 +75,4 @@ public class ArtistsTest extends BaseApiTest {
             assertEquals("artist", artist.get("type"), "Artist type should be 'artist' for artist ID: " + artistId);
         }
     }
-
 }
