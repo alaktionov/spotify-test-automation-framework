@@ -48,3 +48,8 @@ allure serve target/allure-results
 1. Go to the Actions tab
 2. Select the On-Demand Test Execution workflow
 3. Click Run workflow, choose the environment, and start the execution
+> Note: only prod is available for now 
+4. When the run is complete, download attached report, unzip it and using the following command open:
+```shell
+allure serve allure-report
+```
