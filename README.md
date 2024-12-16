@@ -53,3 +53,5 @@ allure serve target/allure-results
 ```shell
 allure serve allure-report
 ```
+5. Example of Allure report:
+![Snipaste_2024-12-16_19-34-05](https://github.com/user-attachments/assets/b99c97d1-f60d-4482-bcd5-3c3f237627af)
