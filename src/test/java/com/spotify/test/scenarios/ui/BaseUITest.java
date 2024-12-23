@@ -4,6 +4,7 @@ import com.spotify.test.BaseTest;
 import com.spotify.test.logic.ui.helpers.LoginHelper;
 import com.spotify.test.logic.ui.helpers.NavigationHelper;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,6 +18,11 @@ public class BaseUITest extends BaseTest {
 
     @Autowired
     protected LoginHelper loginHelper;
+
+    @BeforeEach
+    public void setup() {
+        navigationHelper.navigateToHomePage();
+    }
 
     @AfterEach
     public void tearDown() {

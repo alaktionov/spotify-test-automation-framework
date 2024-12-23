@@ -17,6 +17,9 @@ jobs:
     timeout-minutes: 45
 
     env:
+      BASE_URL: ${{ vars.BASE_URL }}
+      USERNAME: ${{ vars.USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
       BASE_API_URL: ${{ vars.BASE_API_URL }}
       CLIENT_ID: ${{ vars.CLIENT_ID }}
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
@@ -47,7 +50,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run Tests
-        run: mvn test -Dapp.baseApiUrl=${{ env.BASE_API_URL }} -Dapp.clientId=${{ env.CLIENT_ID }} -Dapp.clientSecret=${{ env.CLIENT_SECRET }}
+        run: mvn test
 
       - name: Generate Allure Report
         run: mvn allure:report

@@ -1,11 +1,11 @@
 ## Overview
 
-Test Automation Framework written in Java for testing [Spotify Web API.](https://developer.spotify.com/documentation/web-api)
+Test Automation Framework written in Java for testing Spotify Web [API](https://developer.spotify.com/documentation/web-api) and [UI](https://open.spotify.com/) 
  
-> - The framework is just a showcase of a possible approach to testing Spotify Web API
+> - The framework is just a showcase of a possible approach to testing Spotify Web UI and API
 > - The framework covers only a few endpoints of Artists API, but can be easily extended for other APIs
-> - The framework supports only API-based testing, but can be easily adjusted for UI testing if needed
-> - The framework has just a default profile with properties for **prod** env specified in application.yml (CLIENT_SECRET value has been extracted to GitHub environments secrets)
+> - The framework covers only basic Login functionality on UI, but can be easily extended for other UI functionalities
+> - The framework has just a default profile with properties for **prod** env specified in application.yml (PASSWORD and CLIENT_SECRET values have been extracted to GitHub environments secrets)
 > - The framework has a simple example of CI/CD pipeline
 
 ## Technology stack

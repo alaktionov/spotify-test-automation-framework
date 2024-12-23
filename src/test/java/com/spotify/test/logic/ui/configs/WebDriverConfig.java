@@ -7,10 +7,12 @@ import com.spotify.test.logic.ui.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
 public class WebDriverConfig {
 
     @Bean
-    public static WebDriver webDriver() {
+    public WebDriver webDriver() {
         String browser = System.getProperty("browser", "chrome").toLowerCase();
         WebDriver driver;
         switch (browser) {
@@ -36,11 +38,17 @@ public class WebDriverConfig {
             case "chrome":
             default:
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                driver = new ChromeDriver(options);
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         return driver;
+    }
+
+    @Bean
+    public WebDriverWait webDriverWait(WebDriver driver) {
+        return new WebDriverWait(driver, Duration.ofMinutes(1));
     }
 
     @Bean
