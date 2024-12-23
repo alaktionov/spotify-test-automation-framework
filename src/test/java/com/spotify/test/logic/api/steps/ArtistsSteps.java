@@ -1,10 +1,10 @@
-package com.spotify.test.steps;
+package com.spotify.test.logic.api.steps;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.spotify.test.base.ApiClient;
+import com.spotify.test.logic.api.base.ApiClient;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import lombok.RequiredArgsConstructor;

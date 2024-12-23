@@ -1,4 +1,4 @@
-package com.spotify.test.base;
+package com.spotify.test.logic.api.base;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
@@ -22,10 +22,10 @@ public class ApiClient {
     private static final String GRANT_TYPE = "client_credentials";
     private static final String ACCESS_TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 
-    public ApiClient(String clientId, String clientSecret, String baseApiUrl) {
+    public ApiClient(String baseApiUrl, String clientId, String clientSecret) {
+        this.baseApiUrl = baseApiUrl;
         this.clientId = clientId;
         this.clientSecret = clientSecret;
-        this.baseApiUrl = baseApiUrl;
         this.accessToken = retrieveAccessToken();
     }
 

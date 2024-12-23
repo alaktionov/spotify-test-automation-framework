@@ -1,10 +1,9 @@
-package com.spotify.test.scenarios;
+package com.spotify.test.scenarios.api;
 
 import java.util.List;
 import java.util.Map;
 
-import com.spotify.test.BaseApiTest;
-import com.spotify.test.steps.ArtistsSteps;
+import com.spotify.test.logic.api.steps.ArtistsSteps;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
 import io.restassured.response.Response;
@@ -17,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Epic("Test scenarios for artists functionality")
+@Epic("API - Test scenarios for artists functionality")
 public class ArtistsTest extends BaseApiTest {
 
     @Autowired

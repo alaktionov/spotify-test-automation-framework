@@ -1,4 +1,9 @@
 app:
-  baseApiUrl: ${BASE_API_URL}
-  clientId: ${CLIENT_ID}
-  clientSecret: ${CLIENT_SECRET}
+  ui:
+    baseUrl: ${BASE_URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+  api:
+    baseApiUrl: ${BASE_API_URL}
+    clientId: ${CLIENT_ID}
+    clientSecret: ${CLIENT_SECRET}
