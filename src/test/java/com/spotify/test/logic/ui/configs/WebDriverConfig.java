@@ -15,13 +15,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class WebDriverConfig {
 
     @Bean
-    @Scope("prototype")
     public WebDriver webDriver() {
         String browser = System.getProperty("browser", "chrome").toLowerCase();
         WebDriver driver;
@@ -50,7 +48,7 @@ public class WebDriverConfig {
 
     @Bean
     public WebDriverWait webDriverWait(WebDriver driver) {
-        return new WebDriverWait(driver, Duration.ofMinutes(10));
+        return new WebDriverWait(driver, Duration.ofMinutes(3));
     }
 
     @Bean
