@@ -50,7 +50,9 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Install chrome driver
-        uses: nanasess/setup-chromedriver@v2
+        uses: browser-actions/setup-chrome@v2
+        with:
+          chrome-version: 'latest'
 
       - name: Run Tests
         run: mvn test

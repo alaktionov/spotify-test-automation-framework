@@ -28,7 +28,7 @@ public class LoginTest extends BaseUITest {
             .verifyLogoutButtonIsPresentInUserWidget();
     }
 
-    @Disabled
+    @Disabled("Disabled for showcase purpose")
     @Test
     @Story("Login as an invalid user")
     public void testLoginInvalidUser() {

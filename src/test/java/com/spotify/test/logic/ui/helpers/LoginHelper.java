@@ -21,7 +21,6 @@ public class LoginHelper extends BaseHelper {
     @Step("Login as a user: {username}")
     public void loginAs(String username, String password) {
         log.info("Logging in as a user: {}", username);
-        Allure.parameter("password", "****");
         homePage.clickLoginButton();
         loginPage.enterUsername(username)
             .enterPassword(password)
