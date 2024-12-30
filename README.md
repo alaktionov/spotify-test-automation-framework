@@ -37,6 +37,7 @@ Run tests:
 ```shell
 mvn test
 ```
+> NOTE: tests are executed on Chrome by default. If you need to run them on another browser add the following parameter: `-Dbrowser=firefox` 
 
 Generate and view reports:
 ```shell

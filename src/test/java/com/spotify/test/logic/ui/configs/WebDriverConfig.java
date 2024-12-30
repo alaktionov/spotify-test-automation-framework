@@ -48,7 +48,7 @@ public class WebDriverConfig {
 
     @Bean
     public WebDriverWait webDriverWait(WebDriver driver) {
-        return new WebDriverWait(driver, Duration.ofMinutes(1));
+        return new WebDriverWait(driver, Duration.ofMinutes(3));
     }
 
     @Bean

@@ -17,10 +17,10 @@ public class HomePage extends BasePage {
     @FindBy(id = "Desktop_LeftSidebar_Id")
     private WebElement sideBar;
 
-    @FindBy(id = "user-widget-avatar")
+    @FindBy(xpath = "//button[@data-testid='user-widget-link']")
     private WebElement userAvatar;
 
-    @FindBy(id = "user-widget-avatar")
+    @FindBy(xpath = "//button[@data-testid='user-widget-dropdown-logout']")
     private WebElement logoutButton;
 
     @FindBy(xpath = "//button[@data-testid='login-button']")
@@ -49,6 +49,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean isLogoutButtonDisplayedInUserWidget() {
+        clickUserAvatar();
         return wait.until(ExpectedConditions.visibilityOf(logoutButton)).isDisplayed();
     }
 }

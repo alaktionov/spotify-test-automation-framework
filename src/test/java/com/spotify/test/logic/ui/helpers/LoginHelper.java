@@ -2,6 +2,7 @@ package com.spotify.test.logic.ui.helpers;
 
 import com.spotify.test.logic.ui.pages.HomePage;
 import com.spotify.test.logic.ui.pages.LoginPage;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class LoginHelper extends BaseHelper {
     @Step("Login as a user: {username}")
     public void loginAs(String username, String password) {
         log.info("Logging in as a user: {}", username);
+        Allure.parameter("password", "****");
         homePage.clickLoginButton();
         loginPage.enterUsername(username)
             .enterPassword(password)
