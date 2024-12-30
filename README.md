@@ -55,4 +55,5 @@ allure serve target/allure-results
 allure serve allure-report
 ```
 5. Example of Allure report:
-![Snipaste_2024-12-16_19-34-05](https://github.com/user-attachments/assets/b99c97d1-f60d-4482-bcd5-3c3f237627af)
+![image](https://github.com/user-attachments/assets/75e2df33-a243-4791-855d-ba916d936add)
+
