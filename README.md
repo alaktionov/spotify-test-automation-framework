@@ -28,9 +28,9 @@ cd <repository-name>
 
 > NOTE: Make sure to set **baseApiUrl**, **clientId** and **clientSecret** values for your user in application.yml
 
-Build the project:
+Compile the project:
 ```shell
-mvn clean install
+mvn clean compile
 ```
 
 Run tests:

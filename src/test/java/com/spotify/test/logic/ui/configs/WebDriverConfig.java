@@ -39,7 +39,7 @@ public class WebDriverConfig {
             default:
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless");
+                options.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
                 driver = new ChromeDriver(options);
         }
         driver.manage().window().maximize();
