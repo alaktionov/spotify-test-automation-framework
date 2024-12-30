@@ -49,12 +49,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Install chrome driver
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 'latest'
-          install-chromedriver: true
-
       - name: Run Tests
         run: mvn test
 
