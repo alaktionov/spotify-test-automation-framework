@@ -50,17 +50,17 @@ public class WebDriverConfig {
 
     @Bean
     public WebDriverWait webDriverWait(WebDriver driver) {
-        return new WebDriverWait(driver, Duration.ofMinutes(3));
+        return new WebDriverWait(driver, Duration.ofMinutes(10));
     }
 
     @Bean
-    public LoginPage loginPage(WebDriver webDriver) {
-        return PageFactory.initElements(webDriver, LoginPage.class);
+    public LoginPage loginPage(WebDriver driver) {
+        return PageFactory.initElements(driver, LoginPage.class);
     }
 
     @Bean
-    public HomePage homePage(WebDriver webDriver) {
-        return PageFactory.initElements(webDriver, HomePage.class);
+    public HomePage homePage(WebDriver driver) {
+        return PageFactory.initElements(driver, HomePage.class);
     }
 
 }
