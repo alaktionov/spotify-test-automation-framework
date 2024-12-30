@@ -4,7 +4,7 @@ import com.spotify.test.logic.ui.assertions.HomePageAssertions;
 import com.spotify.test.logic.ui.assertions.LoginPageAssertions;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,19 +17,8 @@ public class LoginTest extends BaseUITest {
     @Autowired
     private LoginPageAssertions loginPageAssertions;
 
-    @Disabled
     @Test
-    @Story("Login as a valid user")
-    public void testLoginValidUser() {
-        loginHelper.loginAs(appConfig.getUsername(), appConfig.getPassword());
-        homePageAssertions.verifyHomePageTitle()
-            .verifyNavigationBarIsPresent()
-            .verifySideBarIsPresent()
-            .verifyUserAvatarIsPresent()
-            .verifyLogoutButtonIsPresentInUserWidget();
-    }
-
-    @Test
+    @Order(1)
     @Story("Login as an invalid user")
     public void testLoginInvalidUser() {
         loginHelper.loginAs("test", "test");
@@ -40,4 +29,15 @@ public class LoginTest extends BaseUITest {
             .verifyAppleLoginIsPresent();
     }
 
+    @Test
+    @Order(2)
+    @Story("Login as a valid user")
+    public void testLoginValidUser() {
+        loginHelper.loginAs(appConfig.getUsername(), appConfig.getPassword());
+        homePageAssertions.verifyHomePageTitle()
+            .verifyNavigationBarIsPresent()
+            .verifySideBarIsPresent()
+            .verifyUserAvatarIsPresent()
+            .verifyLogoutButtonIsPresentInUserWidget();
+    }
 }
