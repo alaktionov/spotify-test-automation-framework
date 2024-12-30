@@ -49,6 +49,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
+      - name: Install chrome driver
+        uses: nanasess/setup-chromedriver@v2
+
       - name: Run Tests
         run: mvn test
 
