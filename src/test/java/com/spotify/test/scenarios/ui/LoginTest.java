@@ -4,7 +4,6 @@ import com.spotify.test.logic.ui.assertions.HomePageAssertions;
 import com.spotify.test.logic.ui.assertions.LoginPageAssertions;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,7 +16,6 @@ public class LoginTest extends BaseUITest {
     @Autowired
     private LoginPageAssertions loginPageAssertions;
 
-    @Disabled
     @Test
     @Story("Login as an invalid user")
     public void testLoginInvalidUser() {
@@ -29,7 +27,6 @@ public class LoginTest extends BaseUITest {
             .verifyAppleLoginIsPresent();
     }
 
-    @Disabled
     @Test
     @Story("Login as a valid user")
     public void testLoginValidUser() {
