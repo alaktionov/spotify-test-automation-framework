@@ -17,7 +17,6 @@ public class LoginTest extends BaseUITest {
     @Autowired
     private LoginPageAssertions loginPageAssertions;
 
-    @Disabled
     @Test
     @Story("Login as an invalid user")
     public void testLoginInvalidUser() {
